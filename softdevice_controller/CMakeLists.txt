@@ -10,6 +10,11 @@ if(CONFIG_BT_LL_SOFTDEVICE OR
 endif()
 
 if(CONFIG_BT_LL_SOFTDEVICE)
+  if(CONFIG_BT_CTLR_ADV_PERIODIC)
+    message(WARNING "\nCONFIG_BT_CTLR_ADV_PERIODIC=y, Periodic Advertising "
+		    "is EXPERIMENTAL.")
+  endif()
+
   nrfxlib_calculate_lib_path(lib_path)
 
   set(SOFTDEVICE_CONTROLLER_LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/${lib_path})
