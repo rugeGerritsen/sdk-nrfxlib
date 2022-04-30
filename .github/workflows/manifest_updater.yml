@@ -1,0 +1,11 @@
+name: Manifest_update
+on:
+  - pull_request_target
+
+jobs:
+  manifest_update:
+    runs-on: ubuntu-latest
+    name: manifest_update
+    steps:
+      - name: Manifest
+        uses: rugeGerritsen/action-manifest-update
