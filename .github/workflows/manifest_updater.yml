@@ -1,0 +1,15 @@
+name: Manifest_update
+on:
+  - pull_request_target
+
+jobs:
+  manifest_update:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: rugeGerritsen/action-manifest-update@main
+       with:
+         github-token: '${{ secrets.GITHUB_TOKEN }}'
+         module-path: '${{ github.repository }}'
+         manifest-repo-path: 'rugeGerritsen/nrfconnect'
+         manifest-file: 'west.yml'
+         module-pull-nr: '${{ github.event.number }}'
