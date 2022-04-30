@@ -1,0 +1,15 @@
+name: Manifest_update
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+
+jobs:
+  manifest_update:
+    runs-on: ubuntu-latest
+    name: manifest_update
+    steps:
+      - name: Printer
+        run: |
+            python3 ${{ github.action_path }}/create_pr.py
